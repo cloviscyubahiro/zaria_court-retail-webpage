@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zaria Court Directory</title>
+<meta name="description" content="Every shop, café and kitchen in the Zaria Court retail park, Kigali, with live opening hours.">
+<meta name="theme-color" content="#0A3254">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="mast">
+  <div class="wrap">
+    <img class="mast__logo" src="assets/brand/zaria-court-horizontal-color-on-navy.svg" alt="Zaria Court" width="677" height="100">
+    <span class="mast__tag label">Guest guide</span>
+  </div>
+</header>
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap hero__grid">
+    <figure class="hero__media" style="margin-top:0;margin-bottom:0">
+      <img src="assets/images/hero-dusk.webp" alt="Shopfronts glowing at dusk under the shade-sail terrace of the Zaria Court retail park" width="1200" height="1452">
+    </figure>
+    <div class="hero__text">
+      <p class="label">Murakaza neza · Welcome</p>
+      <h1 id="hero-title">12 shops, one courtyard.</h1>
+      <p class="hero__lead">Rwandan coffee, African fashion, fresh kitchens and a barber, all a short walk from your room at Zaria Court. Here is who's who, and who's open right now.</p>
+      <a class="cta" href="#directory">Explore the shops <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1v11M2.5 7.5 7 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="strip" role="status" aria-live="polite">
+    <span class="strip__mark"><img class="on-light" src="assets/brand/zaria-court-symbol-color-on-light.svg" alt="" width="133" height="171"><img class="on-dark" src="assets/brand/zaria-court-symbol-color-on-navy.svg" alt="" width="115" height="148"></span>
+    <span class="strip__info"><span class="label" id="strip-label">Open daily</span><span class="strip__time" id="strip-time">Kigali, Rwanda</span></span>
+    <span class="strip__info strip__place"><span class="label">Zaria Court retail park</span><span class="strip__time">KG 17 Ave, Remera, Kigali</span></span>
+    <span class="strip__count" id="strip-count" aria-label="12 shops">12</span>
+  </div>
+</div>
+
+<nav class="filters" aria-label="Filter the directory">
+  <div class="wrap">
+    <div class="chips" id="chips">
+      <button class="chip chip--open" type="button" id="chip-open" data-open-only aria-pressed="false"><i></i>Open now <span id="chip-open-count"></span></button>
+      <span class="chips__sep" aria-hidden="true"></span>
+      <button class="chip" type="button" data-filter="all" aria-pressed="true">All <span>12</span></button>
+      <button class="chip" type="button" data-filter="eat" aria-pressed="false">Eat <span>4</span></button>
+      <button class="chip" type="button" data-filter="coffee" aria-pressed="false">Coffee &amp; wine <span>2</span></button>
+      <button class="chip" type="button" data-filter="shop" aria-pressed="false">Shop <span>4</span></button>
+      <button class="chip" type="button" data-filter="care" aria-pressed="false">Grooming &amp; wellness <span>2</span></button>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap dir" id="directory">
+  <section class="cat" id="eat" data-cat="eat" aria-labelledby="h-eat">
+    <header class="cat__head">
+      <h2 id="h-eat">Eat</h2>
+      <p>Farm to fork plates, fast food favorites, sushi and real fruit ice lollies.</p>
+    </header>
+    <ul class="shops">
+      <li class="shop" data-name="Food &amp; Stuff" data-open="11:00" data-close="21:00" data-days="0123456">
+        <figure class="shop__img shop__img--logo"><img src="assets/logos/foodstuff.webp" alt="Food &amp; Stuff logo" width="400" height="400" decoding="async"></figure>
+        <div class="shop__head">
+          <p class="shop__kind label">Kitchen &amp; catering</p>
+          <h3 class="shop__name">Food &amp; Stuff</h3>
+        </div>
+        <p class="shop__desc">Fresh, farm to fork cooking from one of Rwanda&#x27;s leading caterers, with sandwiches, pitas and chapatis made to order. The kitchen doubles as a training ground for local hospitality talent.</p>
+        <div class="shop__meta">
+          <p class="status" hidden><b></b><span></span></p>
+          <p class="hours"><span>Daily · 11 am to 9 pm</span><a href="https://www.instagram.com/foodandstuffrw/" target="_blank" rel="noopener" aria-label="Food &amp; Stuff on Instagram">@foodandstuffrw</a></p>
+        </div>
+      </li>
+      <li class="shop" data-name="Laza" data-open="11:00" data-close="21:00" data-days="0123456">
+        <figure class="shop__img shop__img--type" aria-hidden="true"><span>Laza</span></figure>
+        <div class="shop__head">
+          <p class="shop__kind label">Ice lollies</p>
+          <h3 class="shop__name">Laza</h3>
+        </div>
+        <p class="shop__desc">Handmade ice lollies from real fruit grown by Rwandan farmers, naturally sweetened and dairy free. Real fruit, real flavor, made in Rwanda.</p>
+        <div class="shop__meta">
+          <p class="status" hidden><b></b><span></span></p>
+          <p class="hours"><span>Daily · 11 am to 9 pm</span><a href="https://www.instagram.com/lazainafrica/" target="_blank" rel="noopener" aria-label="Laza on Instagram">@lazainafrica</a></p>
+        </div>
+      </li>
+      <li class="shop" data-name="Mr Chips" data-open="11:00" data-close="21:30" data-days="0123456">
+        <figure class="shop__img shop__img--logo"><img src="assets/logos/mrchips.webp" alt="Mr Chips logo" width="400" height="400" decoding="async"></figure>
+        <div class="shop__head">
+          <p class="shop__kind label">Fast food</p>
+          <h3 class="shop__name">Mr Chips</h3>
+        </div>
+        <p class="shop__desc">A Kigali fast food favorite since 2011, serving crispy fries, burgers, wings and gyros with a taste of Canada. Great food, fast.</p>
+        <div class="shop__meta">
+          <p class="status" hidden><b></b><span></span></p>
+          <p class="hours"><span>Daily · 11 am to 9:30 pm</span><a href="https://www.instagram.com/mrchipskigaliofficial/" target="_blank" rel="noopener" aria-label="Mr Chips on Instagram">@mrchipskigaliofficial</a></p>
+        </div>
+      </li>
+      <li class="shop" data-name="Wok Spot" data-open="11:00" data-close="21:00" data-days="023456">
+        <figure class="shop__img shop__img--type" aria-hidden="true"><span>Wok Spot</span></figure>
+        <div class="shop__head">
+          <p class="shop__kind label">Asian kitchen &amp; sushi</p>
+          <h3 class="shop__name">Wok Spot</h3>
+        </div>
+        <p class="shop__desc">Fresh sushi, wok dishes and signature cocktails from the team behind Kigali&#x27;s Atelier du Vin.</p>
+        <div class="shop__meta">
+          <p class="status" hidden><b></b><span></span></p>
+          <p class="hours"><span>Tue to Sun, closed Mon · 11 am to 9 pm</span><a href="https://www.instagram.com/atelierduvin_rw/" target="_blank" rel="noopener" aria-label="Wok Spot on Instagram">by @atelierduvin_rw</a></p>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <section class="cat" id="coffee" data-cat="coffee" aria-labelledby="h-coffee">
+    <header class="cat__head">
+      <h2 id="h-coffee">Coffee &amp; wine</h2>
+      <p>Lake Kivu coffee to start the day, a good bottle to end it.</p>
+    </header>
+    <ul class="shops">
+      <li class="shop" data-name="Kivu Noir" data-open="08:00" data-close="21:00" data-days="0123456">
+        <figure class="shop__img shop__img--logo"><img src="assets/logos/kivunoir.webp" alt="Kivu Noir logo" width="400" height="400" decoding="async"></figure>
+        <div class="shop__head">
+          <p class="shop__kind label">Coffee</p>
+          <h3 class="shop__name">Kivu Noir</h3>
+        </div>
+        <p class="shop__desc">Rwandan Red Bourbon Arabica, grown in the hills along Lake Kivu and roasted in Kigali. The newest Kivu Noir café, with warm, genuine hospitality in every cup.</p>
+        <div class="shop__meta">
+          <p class="status" hidden><b></b><span></span></p>
+          <p class="hours"><span>Daily · 8 am to 9 pm</span><a href="https://www.instagram.com/kivunoircafe/" target="_blank" rel="noopener" aria-label="Kivu Noir on Instagram">@kivunoircafe</a></p>
+        </div>
+      </li>
+      <li class="shop" data-name="Wines &amp; More" data-open="09:00" data-close="22:00" data-days="0123456">
+        <figure class="shop__img shop__img--type" aria-hidden="true"><span>Wines &amp; More</span></figure>
+        <div class="shop__head">
+          <p class="shop__kind label">Bottle shop</p>
+          <h3 class="shop__name">Wines &amp; More</h3>
+        </div>
+        <p class="shop__desc">A curated bottle shop with fine wines from around the world, craft spirits and local favorites. Perfect for gifts and celebrations.</p>
+        <div class="shop__meta">
+          <p class="status" hidden><b></b><span></span></p>
+          <p class="hours"><span>Daily · 9 am to 10 pm</span></p>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <section class="cat" id="shop" data-cat="shop" aria-labelledby="h-shop">
+    <header class="cat__head">
+      <h2 id="h-shop">Shop</h2>
+      <p>Jewelry, fashion, sportswear and design from Rwanda and across Africa.</p>
+    </header>
+    <ul class="shops">
+      <li class="shop" data-name="AfroQuality" data-open="10:00" data-close="20:00" data-days="0123456">
+        <figure class="shop__img shop__img--logo"><img src="assets/logos/afroquality.webp" alt="AfroQuality logo" width="400" height="400" decoding="async"></figure>
+        <div class="shop__head">
+          <p class="shop__kind label">African fashion &amp; design</p>
+          <h3 class="shop__name">AfroQuality</h3>
+        </div>
+        <p class="shop__desc">Fashion, footwear and children&#x27;s books from dozens of African brands across nine countries and counting, Rwandan designers included. Think of it as a curated passport to the continent.</p>
+        <div class="shop__meta">
+          <p class="status" hidden><b></b><span></span></p>
+          <p class="hours"><span>Daily · 10 am to 8 pm</span><a href="https://www.instagram.com/afroquality/" target="_blank" rel="noopener" aria-label="AfroQuality on Instagram">@afroquality</a></p>
+        </div>
+      </li>
+      <li class="shop" data-name="Art Rwanda" data-open="10:00" data-close="19:00" data-days="0123456">
+        <figure class="shop__img shop__img--logo"><img src="assets/logos/artrwanda.webp" alt="Art Rwanda logo" width="400" height="400" decoding="async"></figure>
+        <div class="shop__head">
+          <p class="shop__kind label">Rwandan art &amp; design</p>
+          <h3 class="shop__name">Art Rwanda</h3>
+        </div>
+        <p class="shop__desc">The shop of Art Rwanda Ubuhanzi, the national program that discovers and supports young Rwandan creatives. Browse fashion, art and design made by the talent it backs.</p>
+        <div class="shop__meta">
+          <p class="status" hidden><b></b><span></span></p>
+          <p class="hours"><span>Daily · 10 am to 7 pm</span><a href="https://www.instagram.com/ubuhanzi/" target="_blank" rel="noopener" aria-label="Art Rwanda on Instagram">@ubuhanzi</a></p>
+        </div>
+      </li>
+      <li class="shop" data-name="FLEXX" data-open="09:00" data-close="22:00" data-days="0123456">
+        <figure class="shop__img shop__img--logo"><img src="assets/logos/flexx.webp" alt="FLEXX logo" width="400" height="400" decoding="async"></figure>
+        <div class="shop__head">
+          <p class="shop__kind label">Sportswear</p>
+          <h3 class="shop__name">FLEXX</h3>
+        </div>
+        <p class="shop__desc">African performance sportswear and team jerseys, built for early mornings, heavy sessions and game day. Born in Africa, built for the world.</p>
+        <div class="shop__meta">
+          <p class="status" hidden><b></b><span></span></p>
+          <p class="hours"><span>Daily · 9 am to 10 pm</span><a href="https://www.instagram.com/flexx_now/" target="_blank" rel="noopener" aria-label="FLEXX on Instagram">@flexx_now</a></p>
+        </div>
+      </li>
+      <li class="shop" data-name="Melah Luxe" data-open="09:00" data-close="20:00" data-days="0123456">
+        <figure class="shop__img shop__img--logo"><img src="assets/logos/melah.webp" alt="Melah Luxe logo" width="400" height="400" decoding="async"></figure>
+        <div class="shop__head">
+          <p class="shop__kind label">Jewelry</p>
+          <h3 class="shop__name">Melah Luxe</h3>
+        </div>
+        <p class="shop__desc">Stainless steel jewelry and watches in gold and silver tones, from a female-owned Kigali brand. A little gold, a little silver, a lot of Melah.</p>
+        <div class="shop__meta">
+          <p class="status" hidden><b></b><span></span></p>
+          <p class="hours"><span>Daily · 9 am to 8 pm</span><a href="https://www.instagram.com/melah.luxe/" target="_blank" rel="noopener" aria-label="Melah Luxe on Instagram">@melah.luxe</a></p>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <section class="cat" id="care" data-cat="care" aria-labelledby="h-care">
+    <header class="cat__head">
+      <h2 id="h-care">Grooming &amp; wellness</h2>
+      <p>A fresh cut, a skincare top-up and a little time for yourself.</p>
+    </header>
+    <ul class="shops">
+      <li class="shop" data-name="14 Barber" data-open="08:00" data-close="21:30" data-days="0123456">
+        <figure class="shop__img shop__img--logo"><img src="assets/logos/barber14.webp" alt="14 Barber logo" width="400" height="400" decoding="async"></figure>
+        <div class="shop__head">
+          <p class="shop__kind label">Barbershop</p>
+          <h3 class="shop__name">14 Barber</h3>
+        </div>
+        <p class="shop__desc">Precision cuts and fresh fades for every hair type, with a sharp Pan-African sense of style. Book online or drop in.</p>
+        <div class="shop__meta">
+          <p class="status" hidden><b></b><span></span></p>
+          <p class="hours"><span>Daily · 8 am to 9:30 pm</span><a href="https://www.instagram.com/14_barber_kigali/" target="_blank" rel="noopener" aria-label="14 Barber on Instagram">@14_barber_kigali</a></p>
+        </div>
+      </li>
+      <li class="shop" data-name="Ruzi Wellness" data-open="10:00" data-close="21:00" data-days="0123456">
+        <figure class="shop__img shop__img--logo"><img src="assets/logos/ruzi.webp" alt="Ruzi Wellness logo" width="400" height="400" decoding="async"></figure>
+        <div class="shop__head">
+          <p class="shop__kind label">Skincare &amp; supplements</p>
+          <h3 class="shop__name">Ruzi Wellness</h3>
+        </div>
+        <p class="shop__desc">Premium skincare, hair care, vitamins and sports nutrition for beauty from within, with expert advice on what suits you.</p>
+        <div class="shop__meta">
+          <p class="status" hidden><b></b><span></span></p>
+          <p class="hours"><span>Daily · 10 am to 9 pm</span><a href="https://www.instagram.com/ruzi_wellness_zaria/" target="_blank" rel="noopener" aria-label="Ruzi Wellness on Instagram">@ruzi_wellness_zaria</a></p>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <div class="empty" id="empty" hidden></div>
+</main>
+
+<section class="wrap know" aria-labelledby="know-title">
+  <h2 id="know-title">Good to know</h2>
+  <div class="know__grid">
+    <div class="know__item">
+      <h3>Finding your way</h3>
+      <p>Every shop here is in the Zaria Court retail park on KG 17 Ave, Remera, a short walk from the hotel. The team at reception can point you in the right direction.</p>
+    </div>
+    <div class="know__item">
+      <h3>Opening hours</h3>
+      <p>All twelve open every day except Wok Spot, which closes on Mondays. Hours can change on public holidays and event days, so check with the shop if you are cutting it close.</p>
+    </div>
+    <div class="know__item">
+      <h3>More at Zaria Court</h3>
+      <p>Courts, pitches, live events and rooftop drinks at The Jaro. See what's on at <a href="https://www.zariacourt.com/events" target="_blank" rel="noopener">zariacourt.com</a>.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <img class="foot__logo" src="assets/brand/zaria-court-primary-color-on-navy.svg" alt="Zaria Court" width="352" height="133">
+    <p class="foot__tag">Never have to cross the street.</p>
+    <div class="foot__meta">
+      <address>Zaria Court Kigali · KG 17 Ave, Remera, Kigali, Rwanda</address>
+      <p>Opening hours as of October 2026.</p>
+      <p class="foot__links">
+        <a href="https://www.zariacourt.com" target="_blank" rel="noopener">zariacourt.com</a>
+        <a href="https://www.instagram.com/zariacourtrw/" target="_blank" rel="noopener">Instagram @zariacourtrw</a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Zaria%20Court%20Kigali" target="_blank" rel="noopener">Directions</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/directory.js"></script>
+</body>
+</html>
