@@ -4,34 +4,45 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Zaria Court Directory</title>
-<meta name="description" content="Every shop, café and kitchen in the Zaria Court retail park, Kigali, with live opening hours.">
+<meta name="description" content="Shops, cafés, events and game areas at Zaria Court Kigali, with live opening hours and court booking.">
 <meta name="theme-color" content="#0A3254">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<header class="mast">
+<header class="topbar" data-page>
   <div class="wrap">
-    <img class="mast__logo" src="assets/brand/zaria-court-horizontal-color-on-navy.svg" alt="Zaria Court" width="677" height="100">
-    <span class="mast__tag label">Guest guide</span>
+    <a class="topbar__home" href="#top" data-scroll aria-label="Zaria Court, back to top"><img src="assets/brand/zaria-court-horizontal-color-on-navy.svg" alt="Zaria Court" width="677" height="100"></a>
+    <span class="topbar__tag label">Guest guide</span>
+    <button class="live" type="button" id="live-btn" aria-label="Show shops open now"><i aria-hidden="true"></i><span id="live-text">Open daily</span></button>
+    <button class="menu-btn" type="button" id="menu-btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="site-menu">
+      <span class="menu-btn__icon" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span>Menu</span>
+    </button>
   </div>
 </header>
 
-<section class="hero" aria-labelledby="hero-title">
+<a class="nextbar" href="#whats-on" data-scroll data-next data-page hidden><span class="wrap next"><span class="label next__label">Next up</span><b class="next__title"></b><span class="next__when"></span><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M7.5 2.5 12 7l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></a>
+
+<section class="hero" id="top" aria-labelledby="hero-title" data-page>
   <div class="wrap hero__grid">
-    <figure class="hero__media" style="margin-top:0;margin-bottom:0">
+    <figure class="hero__media">
       <img src="assets/images/hero-dusk.webp" alt="Shopfronts glowing at dusk under the shade-sail terrace of the Zaria Court retail park" width="1200" height="1452">
     </figure>
     <div class="hero__text">
       <p class="label">Murakaza neza · Welcome</p>
-      <h1 id="hero-title">12 shops, one courtyard.</h1>
-      <p class="hero__lead">Rwandan coffee, African fashion, fresh kitchens and a barber, all a short walk from your room at Zaria Court. Here is who's who, and who's open right now.</p>
-      <a class="cta" href="#directory">Explore the shops <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1v11M2.5 7.5 7 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+      <h1 id="hero-title">Shop, eat, play. One courtyard.</h1>
+      <p class="hero__lead">Twelve shops for Rwandan coffee, African fashion, fresh kitchens and a sharp cut, plus live events and floodlit pitches you can book. All a short walk from your room.</p>
+      <div class="hero__actions">
+        <a class="cta" href="#directory" data-scroll>Explore the shops <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1v11M2.5 7.5 7 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+        <span class="hero__links"><a href="#whats-on" data-scroll>What's on</a><a href="#play" data-scroll>Play &amp; book</a></span>
+      </div>
+      <a class="hero__next next" href="#whats-on" data-scroll data-next hidden><span class="label next__label">Next up</span><b class="next__title"></b><span class="next__when"></span><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M7.5 2.5 12 7l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
     </div>
   </div>
 </section>
 
-<div class="wrap">
+<div class="wrap" data-page>
   <div class="strip" role="status" aria-live="polite">
     <span class="strip__mark"><img class="on-light" src="assets/brand/zaria-court-symbol-color-on-light.svg" alt="" width="133" height="171"><img class="on-dark" src="assets/brand/zaria-court-symbol-color-on-navy.svg" alt="" width="115" height="148"></span>
     <span class="strip__info"><span class="label" id="strip-label">Open daily</span><span class="strip__time" id="strip-time">Kigali, Rwanda</span></span>
@@ -40,21 +51,14 @@
   </div>
 </div>
 
-<nav class="filters" aria-label="Filter the directory">
-  <div class="wrap">
-    <div class="chips" id="chips">
-      <button class="chip chip--open" type="button" id="chip-open" data-open-only aria-pressed="false"><i></i>Open now <span id="chip-open-count"></span></button>
-      <span class="chips__sep" aria-hidden="true"></span>
-      <button class="chip" type="button" data-filter="all" aria-pressed="true">All <span>12</span></button>
-      <button class="chip" type="button" data-filter="eat" aria-pressed="false">Eat <span>4</span></button>
-      <button class="chip" type="button" data-filter="coffee" aria-pressed="false">Coffee &amp; wine <span>2</span></button>
-      <button class="chip" type="button" data-filter="shop" aria-pressed="false">Shop <span>4</span></button>
-      <button class="chip" type="button" data-filter="care" aria-pressed="false">Grooming &amp; wellness <span>2</span></button>
+<main class="wrap dir" id="directory" data-page>
+  <div class="filterbar">
+    <p class="filterbar__now"><span class="label">Showing</span><b id="filter-desc">All shops (12)</b></p>
+    <div class="filterbar__actions">
+      <button class="chip" type="button" id="filter-clear" hidden>Show all</button>
+      <button class="chip" type="button" id="filter-open" aria-haspopup="dialog" aria-controls="site-menu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M4 8h8M6 12h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Filter</button>
     </div>
   </div>
-</nav>
-
-<main class="wrap dir" id="directory">
   <section class="cat" id="eat" data-cat="eat" aria-labelledby="h-eat">
     <header class="cat__head">
       <h2 id="h-eat">Eat</h2>
@@ -234,7 +238,57 @@
   <div class="empty" id="empty" hidden></div>
 </main>
 
-<section class="wrap know" aria-labelledby="know-title">
+<section class="wrap block" id="whats-on" aria-labelledby="h-events" data-page>
+  <header class="cat__head">
+    <h2 id="h-events">What's on</h2>
+    <p>Live music, markets, match nights and family days at Zaria Court, posted by the Zaria Court team.</p>
+  </header>
+  <ol class="events" id="events-list" hidden></ol>
+  <button class="chip events-more" type="button" id="events-more" aria-controls="events-list" hidden></button>
+  <div class="events-empty" id="events-empty">
+    <p class="label">Nothing announced yet</p>
+    <p>New events appear here as soon as the Zaria Court team announces them. You can also follow <a href="https://www.instagram.com/zariacourtrw/" target="_blank" rel="noopener">@zariacourtrw</a> on Instagram.</p>
+  </div>
+</section>
+
+<section class="wrap block" id="play" aria-labelledby="h-play" data-page>
+  <header class="cat__head">
+    <h2 id="h-play">Play &amp; book</h2>
+    <p>Floodlit turf pitches and a professional-standard court, open to everyone. Pick a date and an hourly slot on Ticqet, from 7 am with the last slot at 11 pm.</p>
+  </header>
+  <div class="play">
+    <article class="play__card">
+      <svg class="play__icon" viewBox="0 0 56 56" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="10" width="50" height="36" rx="1.5"/><path d="M28 10v36"/><circle cx="28" cy="28" r="6"/><path d="M3 21h6v14H3M53 21h-6v14h6"/></svg>
+      <p class="label">Football · 5 a side</p>
+      <h3>Two 5-a-side pitches</h3>
+      <p>Turf pitches for daily games, leagues and youth training, open to everyone from casual players to future stars, and lit for night games.</p>
+      <ul class="play__facts"><li>5 players a side</li><li>Turf</li><li>Floodlit</li></ul>
+      <div class="play__actions">
+        <a class="btn-book" href="https://ticqet.rw/#/event/MX9KuPLIoNeBGlskCFba/reserve" data-ticqet="pitchA" target="_blank" rel="noopener">Book pitch A <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+        <a class="btn-book" href="https://ticqet.rw/#/" data-ticqet="pitchB" target="_blank" rel="noopener">Book pitch B <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+      </div>
+    </article>
+    <article class="play__card">
+      <svg class="play__icon" viewBox="0 0 56 56" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="10" width="50" height="36" rx="1.5"/><path d="M28 10v36"/><circle cx="28" cy="28" r="5"/><path d="M3 21h9v14H3M53 21h-9v14h9"/><path d="M12 21a7 7 0 0 1 0 14M44 21a7 7 0 0 0 0 14"/></svg>
+      <p class="label">Basketball · Fitness · Events</p>
+      <h3>Multi-purpose court</h3>
+      <p>A court built to professional standards for basketball, fitness and events, open to the public for training, games and get-togethers.</p>
+      <ul class="play__facts"><li>Basketball</li><li>Fitness</li><li>Pro standard</li></ul>
+      <div class="play__actions">
+        <a class="btn-book" href="https://ticqet.rw/#/" data-ticqet="court" target="_blank" rel="noopener">Book the court <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+      </div>
+    </article>
+    <article class="play__card">
+      <svg class="play__icon" viewBox="0 0 56 56" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 49 19 9h18l11 40"/><path d="M24 9v24M32 9v24M21 33h14"/></svg>
+      <p class="label">For children</p>
+      <h3>Playground &amp; park</h3>
+      <p>A children's playground in the landscaped park on the Zaria Court campus, a short walk from the shops. Ask the team at reception for today's opening times.</p>
+    </article>
+  </div>
+  <p class="play__note" id="play-note">Pitch B and the court: Ticqet opens on its home page, where you choose <b>Zaria Court</b> under Venues.</p>
+</section>
+
+<section class="wrap know" id="know" aria-labelledby="know-title" data-page>
   <h2 id="know-title">Good to know</h2>
   <div class="know__grid">
     <div class="know__item">
@@ -243,31 +297,67 @@
     </div>
     <div class="know__item">
       <h3>Opening hours</h3>
-      <p>All twelve open every day except Wok Spot, which closes on Mondays. Hours can change on public holidays and event days, so check with the shop if you are cutting it close.</p>
+      <p>All twelve shops open every day except Wok Spot, which closes on Mondays. Hours can change on public holidays and event days, so check with the shop if you are cutting it close.</p>
     </div>
     <div class="know__item">
-      <h3>More at Zaria Court</h3>
-      <p>Courts, pitches, live events and rooftop drinks at The Jaro. See what's on at <a href="https://www.zariacourt.com/events" target="_blank" rel="noopener">zariacourt.com</a>.</p>
+      <h3>Events and bookings</h3>
+      <p>Event details come from the Zaria Court team and can change, so check the event link before you set off. Courts and pitches are booked on <a href="https://ticqet.rw/#/" data-ticqet="home" target="_blank" rel="noopener">Ticqet</a>.</p>
     </div>
   </div>
 </section>
 
-<footer class="foot">
+<footer class="foot" data-page>
   <div class="wrap foot__in">
     <img class="foot__logo" src="assets/brand/zaria-court-primary-color-on-navy.svg" alt="Zaria Court" width="352" height="133">
     <p class="foot__tag">Never have to cross the street.</p>
     <div class="foot__meta">
       <address>Zaria Court Kigali · KG 17 Ave, Remera, Kigali, Rwanda</address>
-      <p>Opening hours as of October 2026.</p>
+      <p>Shop opening hours as of October 2026.</p>
       <p class="foot__links">
         <a href="https://www.zariacourt.com" target="_blank" rel="noopener">zariacourt.com</a>
         <a href="https://www.instagram.com/zariacourtrw/" target="_blank" rel="noopener">Instagram @zariacourtrw</a>
+        <a href="https://ticqet.rw/#/" data-ticqet="home" target="_blank" rel="noopener">Book a pitch or court on Ticqet</a>
         <a href="https://www.google.com/maps/search/?api=1&amp;query=Zaria%20Court%20Kigali" target="_blank" rel="noopener">Directions</a>
       </p>
     </div>
   </div>
 </footer>
 
+<div class="drawer" id="site-menu" hidden>
+  <div class="drawer__backdrop" data-close></div>
+  <div class="drawer__panel" role="dialog" aria-modal="true" aria-labelledby="menu-title">
+    <div class="drawer__top">
+      <img src="assets/brand/zaria-court-symbol-color-on-navy.svg" alt="" width="115" height="148">
+      <p class="drawer__title label" id="menu-title">Explore Zaria Court</p>
+      <button class="drawer__close" type="button" data-close aria-label="Close menu"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3 3 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    </div>
+    <p class="drawer__live"><i aria-hidden="true"></i><span id="menu-live">Open daily</span></p>
+    <nav class="drawer__group" aria-label="Shops">
+      <p class="label">Shops</p>
+      <ul class="drawer__list">
+        <li style="--i:0"><button class="drawer__item" type="button" data-filter="all" aria-pressed="true"><i class="sw sw--all" aria-hidden="true"></i><span>All shops</span><em>12</em></button></li>
+        <li style="--i:1"><button class="drawer__item" type="button" data-filter="eat" aria-pressed="false"><i class="sw sw--red" aria-hidden="true"></i><span>Eat</span><em>4</em></button></li>
+        <li style="--i:2"><button class="drawer__item" type="button" data-filter="coffee" aria-pressed="false"><i class="sw sw--yellow" aria-hidden="true"></i><span>Coffee &amp; wine</span><em>2</em></button></li>
+        <li style="--i:3"><button class="drawer__item" type="button" data-filter="shop" aria-pressed="false"><i class="sw sw--green" aria-hidden="true"></i><span>Shop</span><em>4</em></button></li>
+        <li style="--i:4"><button class="drawer__item" type="button" data-filter="care" aria-pressed="false"><i class="sw sw--white" aria-hidden="true"></i><span>Grooming &amp; wellness</span><em>2</em></button></li>
+      </ul>
+      <label class="switch"><input type="checkbox" id="open-only" role="switch"><span class="switch__track" aria-hidden="true"></span><span>Only shops open now</span></label>
+    </nav>
+    <nav class="drawer__group" aria-label="More at Zaria Court">
+      <p class="label">Explore</p>
+      <ul class="drawer__list">
+        <li style="--i:6"><a class="drawer__item" href="#whats-on" data-nav><span>What's on</span><em id="menu-events">Soon</em></a></li>
+        <li style="--i:7"><a class="drawer__item" href="#play" data-nav><span>Play &amp; book</span><em>3 areas</em></a></li>
+        <li style="--i:8"><a class="drawer__item" href="#know" data-nav><span>Good to know</span><em></em></a></li>
+      </ul>
+    </nav>
+    <a class="btn-book drawer__cta" href="https://ticqet.rw/#/" data-ticqet="home" target="_blank" rel="noopener">Book a pitch or court on Ticqet <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+    <p class="drawer__foot">KG 17 Ave, Remera · <a href="https://www.instagram.com/zariacourtrw/" target="_blank" rel="noopener">@zariacourtrw</a></p>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="data/events.js"></script>
 <script src="js/directory.js"></script>
 </body>
 </html>

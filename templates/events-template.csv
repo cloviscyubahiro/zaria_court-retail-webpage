@@ -1,0 +1,2 @@
+﻿Title,Date (YYYY-MM-DD),Start time (24h),End time (24h),Last day (multi-day events only),Venue,Category,Short description,More details,Price,Link,Button text,Image link,Publish (yes/no)
+EXAMPLE - Live music night (rows starting with EXAMPLE never show),2026-11-14,18:00,23:00,,Main courtyard,Music,One or two sentences guests see first.,"Longer text guests see when they tap More details, for example the line-up or what to bring.",Free entry,https://example.com/tickets,Get tickets,,yes
