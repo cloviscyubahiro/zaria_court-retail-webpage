@@ -1,0 +1,13 @@
+{
+  "name": "zaria-court-directory",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Guest guide to Zaria Court Kigali: shops with live opening hours, events and game-area booking.",
+  "license": "UNLICENSED",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

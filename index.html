@@ -6,319 +6,401 @@
 <title>Zaria Court Directory</title>
 <meta name="description" content="Shops, cafés, events and game areas at Zaria Court Kigali, with live opening hours and court booking.">
 <meta name="theme-color" content="#0A3254">
+<link rel="icon" href="assets/brand/zaria-court-symbol-color-on-light.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/brandon-grotesque-black.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
+<!-- Icon sprite: 24 x 24 line icons (play-area icons are 56 x 56), drawn in the text colour -->
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+  <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 7h16M7 12h10M10 17h4"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-ticket" viewBox="0 0 24 24"><path d="M3.5 7.5A1.5 1.5 0 0 1 5 6h14a1.5 1.5 0 0 1 1.5 1.5V10a2 2 0 0 0 0 4v2.5A1.5 1.5 0 0 1 19 18H5a1.5 1.5 0 0 1-1.5-1.5V14a2 2 0 0 0 0-4z"/><path d="M14.5 8.5v1.5M14.5 14v1.5"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.3 2.4 3.5 5.2 3.5 8.5s-1.2 6.1-3.5 8.5c-2.3-2.4-3.5-5.2-3.5-8.5s1.2-6.1 3.5-8.5z"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4.5 7.5h3l1.6-2.5h5.8l1.6 2.5h3A1.5 1.5 0 0 1 21 9v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18V9a1.5 1.5 0 0 1 1.5-1.5z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+  <symbol id="i-directions" viewBox="0 0 24 24"><path d="M3.5 10.5 20.5 3.5l-7 17-2.2-7.8z"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 8h.01"/></symbol>
+  <symbol id="i-pitch" viewBox="0 0 56 56"><rect x="3" y="10" width="50" height="36" rx="4"/><path d="M28 10v36"/><circle cx="28" cy="28" r="6"/><path d="M3 21h6v14H3M53 21h-6v14h6"/></symbol>
+  <symbol id="i-court" viewBox="0 0 56 56"><rect x="3" y="10" width="50" height="36" rx="4"/><path d="M28 10v36"/><circle cx="28" cy="28" r="5"/><path d="M3 21h9v14H3M53 21h-9v14h9M12 21a7 7 0 0 1 0 14M44 21a7 7 0 0 0 0 14"/></symbol>
+  <symbol id="i-swing" viewBox="0 0 56 56"><path d="M8 49 19 9h18l11 40"/><path d="M24 9v24M32 9v24M21 33h14"/></symbol>
+</svg>
+
+<a class="skip-link" href="#directory" data-page>Skip to the shops</a>
+
 <header class="topbar" data-page>
-  <div class="wrap">
+  <div class="wrap topbar__inner">
     <a class="topbar__home" href="#top" data-scroll aria-label="Zaria Court, back to top"><img src="assets/brand/zaria-court-horizontal-color-on-navy.svg" alt="Zaria Court" width="677" height="100"></a>
     <span class="topbar__tag label">Guest guide</span>
-    <button class="live" type="button" id="live-btn" aria-label="Show shops open now"><i aria-hidden="true"></i><span id="live-text">Open daily</span></button>
+    <button class="live" type="button" id="live-btn" aria-label="Show shops open now"><span class="dot" aria-hidden="true"></span><span id="live-text">Open daily</span></button>
     <button class="menu-btn" type="button" id="menu-btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="site-menu">
-      <span class="menu-btn__icon" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="menu-btn__bars" aria-hidden="true"><span></span><span></span><span></span></span>
       <span>Menu</span>
     </button>
   </div>
 </header>
 
-<a class="nextbar" href="#whats-on" data-scroll data-next data-page hidden><span class="wrap next"><span class="label next__label">Next up</span><b class="next__title"></b><span class="next__when"></span><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M7.5 2.5 12 7l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></a>
+<a class="nextbar" href="#whats-on" data-scroll data-next data-page hidden>
+  <span class="wrap next"><span class="label next__label">Next up</span><b class="next__title"></b><span class="next__when"></span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg></span>
+</a>
 
-<section class="hero" id="top" aria-labelledby="hero-title" data-page>
-  <div class="wrap hero__grid">
-    <figure class="hero__media">
-      <img src="assets/images/hero-dusk.webp" alt="Shopfronts glowing at dusk under the shade-sail terrace of the Zaria Court retail park" width="1200" height="1452">
-    </figure>
-    <div class="hero__text">
-      <p class="label">Murakaza neza · Welcome</p>
-      <h1 id="hero-title">Shop, eat, play. One courtyard.</h1>
-      <p class="hero__lead">Twelve shops for Rwandan coffee, African fashion, fresh kitchens and a sharp cut, plus live events and floodlit pitches you can book. All a short walk from your room.</p>
-      <div class="hero__actions">
-        <a class="cta" href="#directory" data-scroll>Explore the shops <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1v11M2.5 7.5 7 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
-        <span class="hero__links"><a href="#whats-on" data-scroll>What's on</a><a href="#play" data-scroll>Play &amp; book</a></span>
+<main id="main" data-page>
+
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="wrap hero__grid">
+      <figure class="hero__media">
+        <img src="assets/images/hero-dusk.webp" alt="Shopfronts glowing at dusk under the shade-sail terrace of the Zaria Court retail park" width="1200" height="1452" fetchpriority="high">
+      </figure>
+      <div class="hero__text">
+        <p class="label hero__kicker">Murakaza neza · Welcome</p>
+        <h1 id="hero-title">Shop, eat, play. One courtyard.</h1>
+        <p class="hero__lead">Twelve shops for Rwandan coffee, African fashion, fresh kitchens and a sharp cut, plus live events and floodlit pitches you can book. All a short walk from your room.</p>
+        <div class="hero__actions">
+          <a class="btn btn--light" href="#directory" data-scroll>Explore the shops <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-down"></use></svg></a>
+          <nav class="hero__links" aria-label="Jump to"><a href="#whats-on" data-scroll>What's on</a><a href="#play" data-scroll>Play &amp; book</a></nav>
+        </div>
+        <a class="next next--card" href="#whats-on" data-scroll data-next hidden><span class="label next__label">Next up</span><b class="next__title"></b><span class="next__when"></span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg></a>
       </div>
-      <a class="hero__next next" href="#whats-on" data-scroll data-next hidden><span class="label next__label">Next up</span><b class="next__title"></b><span class="next__when"></span><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M7.5 2.5 12 7l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="strip">
+      <span class="strip__cell strip__mark"><img class="on-light" src="assets/brand/zaria-court-symbol-color-on-light.svg" alt="" width="133" height="171"><img class="on-dark" src="assets/brand/zaria-court-symbol-color-on-navy.svg" alt="" width="115" height="148"></span>
+      <span class="strip__cell strip__info">
+        <span class="label" id="strip-label">Open daily</span>
+        <span class="strip__line"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg><span id="strip-time">Kigali, Rwanda</span></span>
+      </span>
+      <span class="strip__cell strip__info strip__place">
+        <span class="label">Zaria Court retail park</span>
+        <span class="strip__line"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-pin"></use></svg><span>KG 17 Ave, Remera, Kigali</span></span>
+      </span>
+      <span class="strip__cell strip__count" id="strip-count">12</span>
     </div>
   </div>
-</section>
 
-<div class="wrap" data-page>
-  <div class="strip" role="status" aria-live="polite">
-    <span class="strip__mark"><img class="on-light" src="assets/brand/zaria-court-symbol-color-on-light.svg" alt="" width="133" height="171"><img class="on-dark" src="assets/brand/zaria-court-symbol-color-on-navy.svg" alt="" width="115" height="148"></span>
-    <span class="strip__info"><span class="label" id="strip-label">Open daily</span><span class="strip__time" id="strip-time">Kigali, Rwanda</span></span>
-    <span class="strip__info strip__place"><span class="label">Zaria Court retail park</span><span class="strip__time">KG 17 Ave, Remera, Kigali</span></span>
-    <span class="strip__count" id="strip-count" aria-label="12 shops">12</span>
-  </div>
-</div>
-
-<main class="wrap dir" id="directory" data-page>
-  <div class="filterbar">
-    <p class="filterbar__now"><span class="label">Showing</span><b id="filter-desc">All shops (12)</b></p>
-    <div class="filterbar__actions">
-      <button class="chip" type="button" id="filter-clear" hidden>Show all</button>
-      <button class="chip" type="button" id="filter-open" aria-haspopup="dialog" aria-controls="site-menu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M4 8h8M6 12h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Filter</button>
+  <section class="wrap directory" id="directory" aria-label="Shops">
+    <div class="filterbar">
+      <p class="filterbar__summary" aria-live="polite"><span class="label">Showing</span> <b id="filter-desc">All shops (12)</b></p>
+      <div class="filterbar__actions">
+        <button class="btn btn--quiet" type="button" id="filter-clear" hidden>Show all</button>
+        <button class="btn btn--quiet" type="button" id="filter-open" aria-haspopup="dialog" aria-controls="site-menu"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-filter"></use></svg>Filter</button>
+      </div>
     </div>
-  </div>
-  <section class="cat" id="eat" data-cat="eat" aria-labelledby="h-eat">
-    <header class="cat__head">
-      <h2 id="h-eat">Eat</h2>
-      <p>Farm to fork plates, fast food favorites, sushi and real fruit ice lollies.</p>
-    </header>
-    <ul class="shops">
-      <li class="shop" data-name="Food &amp; Stuff" data-open="11:00" data-close="21:00" data-days="0123456">
-        <figure class="shop__img shop__img--logo"><img src="assets/logos/foodstuff.webp" alt="Food &amp; Stuff logo" width="400" height="400" decoding="async"></figure>
-        <div class="shop__head">
-          <p class="shop__kind label">Kitchen &amp; catering</p>
-          <h3 class="shop__name">Food &amp; Stuff</h3>
-        </div>
-        <p class="shop__desc">Fresh, farm to fork cooking from one of Rwanda&#x27;s leading caterers, with sandwiches, pitas and chapatis made to order. The kitchen doubles as a training ground for local hospitality talent.</p>
-        <div class="shop__meta">
-          <p class="status" hidden><b></b><span></span></p>
-          <p class="hours"><span>Daily · 11 am to 9 pm</span><a href="https://www.instagram.com/foodandstuffrw/" target="_blank" rel="noopener" aria-label="Food &amp; Stuff on Instagram">@foodandstuffrw</a></p>
-        </div>
-      </li>
-      <li class="shop" data-name="Laza" data-open="11:00" data-close="21:00" data-days="0123456">
-        <figure class="shop__img shop__img--type" aria-hidden="true"><span>Laza</span></figure>
-        <div class="shop__head">
-          <p class="shop__kind label">Ice lollies</p>
-          <h3 class="shop__name">Laza</h3>
-        </div>
-        <p class="shop__desc">Handmade ice lollies from real fruit grown by Rwandan farmers, naturally sweetened and dairy free. Real fruit, real flavor, made in Rwanda.</p>
-        <div class="shop__meta">
-          <p class="status" hidden><b></b><span></span></p>
-          <p class="hours"><span>Daily · 11 am to 9 pm</span><a href="https://www.instagram.com/lazainafrica/" target="_blank" rel="noopener" aria-label="Laza on Instagram">@lazainafrica</a></p>
-        </div>
-      </li>
-      <li class="shop" data-name="Mr Chips" data-open="11:00" data-close="21:30" data-days="0123456">
-        <figure class="shop__img shop__img--logo"><img src="assets/logos/mrchips.webp" alt="Mr Chips logo" width="400" height="400" decoding="async"></figure>
-        <div class="shop__head">
-          <p class="shop__kind label">Fast food</p>
-          <h3 class="shop__name">Mr Chips</h3>
-        </div>
-        <p class="shop__desc">A Kigali fast food favorite since 2011, serving crispy fries, burgers, wings and gyros with a taste of Canada. Great food, fast.</p>
-        <div class="shop__meta">
-          <p class="status" hidden><b></b><span></span></p>
-          <p class="hours"><span>Daily · 11 am to 9:30 pm</span><a href="https://www.instagram.com/mrchipskigaliofficial/" target="_blank" rel="noopener" aria-label="Mr Chips on Instagram">@mrchipskigaliofficial</a></p>
-        </div>
-      </li>
-      <li class="shop" data-name="Wok Spot" data-open="11:00" data-close="21:00" data-days="023456">
-        <figure class="shop__img shop__img--type" aria-hidden="true"><span>Wok Spot</span></figure>
-        <div class="shop__head">
-          <p class="shop__kind label">Asian kitchen &amp; sushi</p>
-          <h3 class="shop__name">Wok Spot</h3>
-        </div>
-        <p class="shop__desc">Fresh sushi, wok dishes and signature cocktails from the team behind Kigali&#x27;s Atelier du Vin.</p>
-        <div class="shop__meta">
-          <p class="status" hidden><b></b><span></span></p>
-          <p class="hours"><span>Tue to Sun, closed Mon · 11 am to 9 pm</span><a href="https://www.instagram.com/atelierduvin_rw/" target="_blank" rel="noopener" aria-label="Wok Spot on Instagram">by @atelierduvin_rw</a></p>
-        </div>
-      </li>
-    </ul>
+    <section class="category" id="eat" data-category="eat" aria-labelledby="h-eat">
+      <header class="section-head">
+        <h2 id="h-eat">Eat</h2>
+        <p>Farm to fork plates, fast food favorites, sushi and real fruit ice lollies.</p>
+      </header>
+      <ul class="shop-grid">
+        <li class="shop" data-name="Food &amp; Stuff" data-open="11:00" data-close="21:00" data-days="0123456">
+          <figure class="shop__logo"><img src="assets/logos/foodstuff.webp" alt="Food &amp; Stuff logo" width="400" height="400" decoding="async"></figure>
+          <div class="shop__head">
+            <p class="shop__kind label">Kitchen &amp; catering</p>
+            <h3 class="shop__name">Food &amp; Stuff</h3>
+          </div>
+          <p class="shop__desc">Fresh, farm to fork cooking from one of Rwanda&#x27;s leading caterers, with sandwiches, pitas and chapatis made to order. The kitchen doubles as a training ground for local hospitality talent.</p>
+          <div class="shop__meta">
+            <p class="status" hidden><span class="status__label"></span><span class="status__note"></span></p>
+            <ul class="info-list">
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg><span><span class="sr-only">Opening hours: </span>Daily · 11 am to 9 pm</span></li>
+              <li><a href="https://www.instagram.com/foodandstuffrw/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-camera"></use></svg><span><span class="sr-only">Food &amp; Stuff on Instagram: </span>@foodandstuffrw<span class="sr-only"> (opens in a new tab)</span></span></a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="shop" data-name="Laza" data-open="11:00" data-close="21:00" data-days="0123456">
+          <figure class="shop__logo shop__logo--text" aria-hidden="true"><span>Laza</span></figure>
+          <div class="shop__head">
+            <p class="shop__kind label">Ice lollies</p>
+            <h3 class="shop__name">Laza</h3>
+          </div>
+          <p class="shop__desc">Handmade ice lollies from real fruit grown by Rwandan farmers, naturally sweetened and dairy free. Real fruit, real flavor, made in Rwanda.</p>
+          <div class="shop__meta">
+            <p class="status" hidden><span class="status__label"></span><span class="status__note"></span></p>
+            <ul class="info-list">
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg><span><span class="sr-only">Opening hours: </span>Daily · 11 am to 9 pm</span></li>
+              <li><a href="https://www.instagram.com/lazainafrica/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-camera"></use></svg><span><span class="sr-only">Laza on Instagram: </span>@lazainafrica<span class="sr-only"> (opens in a new tab)</span></span></a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="shop" data-name="Mr Chips" data-open="11:00" data-close="21:30" data-days="0123456">
+          <figure class="shop__logo"><img src="assets/logos/mrchips.webp" alt="Mr Chips logo" width="400" height="400" decoding="async"></figure>
+          <div class="shop__head">
+            <p class="shop__kind label">Fast food</p>
+            <h3 class="shop__name">Mr Chips</h3>
+          </div>
+          <p class="shop__desc">A Kigali fast food favorite since 2011, serving crispy fries, burgers, wings and gyros with a taste of Canada. Great food, fast.</p>
+          <div class="shop__meta">
+            <p class="status" hidden><span class="status__label"></span><span class="status__note"></span></p>
+            <ul class="info-list">
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg><span><span class="sr-only">Opening hours: </span>Daily · 11 am to 9:30 pm</span></li>
+              <li><a href="https://www.instagram.com/mrchipskigaliofficial/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-camera"></use></svg><span><span class="sr-only">Mr Chips on Instagram: </span>@mrchipskigaliofficial<span class="sr-only"> (opens in a new tab)</span></span></a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="shop" data-name="Wok Spot" data-open="11:00" data-close="21:00" data-days="023456">
+          <figure class="shop__logo shop__logo--text" aria-hidden="true"><span>Wok Spot</span></figure>
+          <div class="shop__head">
+            <p class="shop__kind label">Asian kitchen &amp; sushi</p>
+            <h3 class="shop__name">Wok Spot</h3>
+          </div>
+          <p class="shop__desc">Fresh sushi, wok dishes and signature cocktails from the team behind Kigali&#x27;s Atelier du Vin.</p>
+          <div class="shop__meta">
+            <p class="status" hidden><span class="status__label"></span><span class="status__note"></span></p>
+            <ul class="info-list">
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg><span><span class="sr-only">Opening hours: </span>Tue to Sun, closed Mon · 11 am to 9 pm</span></li>
+              <li><a href="https://www.instagram.com/atelierduvin_rw/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-camera"></use></svg><span><span class="sr-only">Wok Spot on Instagram: </span>by @atelierduvin_rw<span class="sr-only"> (opens in a new tab)</span></span></a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <section class="category" id="coffee" data-category="coffee" aria-labelledby="h-coffee">
+      <header class="section-head">
+        <h2 id="h-coffee">Coffee &amp; wine</h2>
+        <p>Lake Kivu coffee to start the day, a good bottle to end it.</p>
+      </header>
+      <ul class="shop-grid">
+        <li class="shop" data-name="Kivu Noir" data-open="08:00" data-close="21:00" data-days="0123456">
+          <figure class="shop__logo"><img src="assets/logos/kivunoir.webp" alt="Kivu Noir logo" width="400" height="400" decoding="async"></figure>
+          <div class="shop__head">
+            <p class="shop__kind label">Coffee</p>
+            <h3 class="shop__name">Kivu Noir</h3>
+          </div>
+          <p class="shop__desc">Rwandan Red Bourbon Arabica, grown in the hills along Lake Kivu and roasted in Kigali. The newest Kivu Noir café, with warm, genuine hospitality in every cup.</p>
+          <div class="shop__meta">
+            <p class="status" hidden><span class="status__label"></span><span class="status__note"></span></p>
+            <ul class="info-list">
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg><span><span class="sr-only">Opening hours: </span>Daily · 8 am to 9 pm</span></li>
+              <li><a href="https://www.instagram.com/kivunoircafe/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-camera"></use></svg><span><span class="sr-only">Kivu Noir on Instagram: </span>@kivunoircafe<span class="sr-only"> (opens in a new tab)</span></span></a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="shop" data-name="Wines &amp; More" data-open="09:00" data-close="22:00" data-days="0123456">
+          <figure class="shop__logo shop__logo--text" aria-hidden="true"><span>Wines &amp; More</span></figure>
+          <div class="shop__head">
+            <p class="shop__kind label">Bottle shop</p>
+            <h3 class="shop__name">Wines &amp; More</h3>
+          </div>
+          <p class="shop__desc">A curated bottle shop with fine wines from around the world, craft spirits and local favorites. Perfect for gifts and celebrations.</p>
+          <div class="shop__meta">
+            <p class="status" hidden><span class="status__label"></span><span class="status__note"></span></p>
+            <ul class="info-list">
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg><span><span class="sr-only">Opening hours: </span>Daily · 9 am to 10 pm</span></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <section class="category" id="shop" data-category="shop" aria-labelledby="h-shop">
+      <header class="section-head">
+        <h2 id="h-shop">Shop</h2>
+        <p>Jewelry, fashion, sportswear and design from Rwanda and across Africa.</p>
+      </header>
+      <ul class="shop-grid">
+        <li class="shop" data-name="AfroQuality" data-open="10:00" data-close="20:00" data-days="0123456">
+          <figure class="shop__logo"><img src="assets/logos/afroquality.webp" alt="AfroQuality logo" width="400" height="400" decoding="async"></figure>
+          <div class="shop__head">
+            <p class="shop__kind label">African fashion &amp; design</p>
+            <h3 class="shop__name">AfroQuality</h3>
+          </div>
+          <p class="shop__desc">Fashion, footwear and children&#x27;s books from dozens of African brands across nine countries and counting, Rwandan designers included. Think of it as a curated passport to the continent.</p>
+          <div class="shop__meta">
+            <p class="status" hidden><span class="status__label"></span><span class="status__note"></span></p>
+            <ul class="info-list">
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg><span><span class="sr-only">Opening hours: </span>Daily · 10 am to 8 pm</span></li>
+              <li><a href="https://www.instagram.com/afroquality/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-camera"></use></svg><span><span class="sr-only">AfroQuality on Instagram: </span>@afroquality<span class="sr-only"> (opens in a new tab)</span></span></a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="shop" data-name="Art Rwanda" data-open="10:00" data-close="19:00" data-days="0123456">
+          <figure class="shop__logo"><img src="assets/logos/artrwanda.webp" alt="Art Rwanda logo" width="400" height="400" decoding="async"></figure>
+          <div class="shop__head">
+            <p class="shop__kind label">Rwandan art &amp; design</p>
+            <h3 class="shop__name">Art Rwanda</h3>
+          </div>
+          <p class="shop__desc">The shop of Art Rwanda Ubuhanzi, the national program that discovers and supports young Rwandan creatives. Browse fashion, art and design made by the talent it backs.</p>
+          <div class="shop__meta">
+            <p class="status" hidden><span class="status__label"></span><span class="status__note"></span></p>
+            <ul class="info-list">
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg><span><span class="sr-only">Opening hours: </span>Daily · 10 am to 7 pm</span></li>
+              <li><a href="https://www.instagram.com/ubuhanzi/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-camera"></use></svg><span><span class="sr-only">Art Rwanda on Instagram: </span>@ubuhanzi<span class="sr-only"> (opens in a new tab)</span></span></a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="shop" data-name="FLEXX" data-open="09:00" data-close="22:00" data-days="0123456">
+          <figure class="shop__logo"><img src="assets/logos/flexx.webp" alt="FLEXX logo" width="400" height="400" decoding="async"></figure>
+          <div class="shop__head">
+            <p class="shop__kind label">Sportswear</p>
+            <h3 class="shop__name">FLEXX</h3>
+          </div>
+          <p class="shop__desc">African performance sportswear and team jerseys, built for early mornings, heavy sessions and game day. Born in Africa, built for the world.</p>
+          <div class="shop__meta">
+            <p class="status" hidden><span class="status__label"></span><span class="status__note"></span></p>
+            <ul class="info-list">
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg><span><span class="sr-only">Opening hours: </span>Daily · 9 am to 10 pm</span></li>
+              <li><a href="https://www.instagram.com/flexx_now/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-camera"></use></svg><span><span class="sr-only">FLEXX on Instagram: </span>@flexx_now<span class="sr-only"> (opens in a new tab)</span></span></a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="shop" data-name="Melah Luxe" data-open="09:00" data-close="20:00" data-days="0123456">
+          <figure class="shop__logo"><img src="assets/logos/melah.webp" alt="Melah Luxe logo" width="400" height="400" decoding="async"></figure>
+          <div class="shop__head">
+            <p class="shop__kind label">Jewelry</p>
+            <h3 class="shop__name">Melah Luxe</h3>
+          </div>
+          <p class="shop__desc">Stainless steel jewelry and watches in gold and silver tones, from a female-owned Kigali brand. A little gold, a little silver, a lot of Melah.</p>
+          <div class="shop__meta">
+            <p class="status" hidden><span class="status__label"></span><span class="status__note"></span></p>
+            <ul class="info-list">
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg><span><span class="sr-only">Opening hours: </span>Daily · 9 am to 8 pm</span></li>
+              <li><a href="https://www.instagram.com/melah.luxe/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-camera"></use></svg><span><span class="sr-only">Melah Luxe on Instagram: </span>@melah.luxe<span class="sr-only"> (opens in a new tab)</span></span></a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <section class="category" id="care" data-category="care" aria-labelledby="h-care">
+      <header class="section-head">
+        <h2 id="h-care">Grooming &amp; wellness</h2>
+        <p>A fresh cut, a skincare top-up and a little time for yourself.</p>
+      </header>
+      <ul class="shop-grid">
+        <li class="shop" data-name="14 Barber" data-open="08:00" data-close="21:30" data-days="0123456">
+          <figure class="shop__logo"><img src="assets/logos/barber14.webp" alt="14 Barber logo" width="400" height="400" decoding="async"></figure>
+          <div class="shop__head">
+            <p class="shop__kind label">Barbershop</p>
+            <h3 class="shop__name">14 Barber</h3>
+          </div>
+          <p class="shop__desc">Precision cuts and fresh fades for every hair type, with a sharp Pan-African sense of style. Book online or drop in.</p>
+          <div class="shop__meta">
+            <p class="status" hidden><span class="status__label"></span><span class="status__note"></span></p>
+            <ul class="info-list">
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg><span><span class="sr-only">Opening hours: </span>Daily · 8 am to 9:30 pm</span></li>
+              <li><a href="https://www.instagram.com/14_barber_kigali/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-camera"></use></svg><span><span class="sr-only">14 Barber on Instagram: </span>@14_barber_kigali<span class="sr-only"> (opens in a new tab)</span></span></a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="shop" data-name="Ruzi Wellness" data-open="10:00" data-close="21:00" data-days="0123456">
+          <figure class="shop__logo"><img src="assets/logos/ruzi.webp" alt="Ruzi Wellness logo" width="400" height="400" decoding="async"></figure>
+          <div class="shop__head">
+            <p class="shop__kind label">Skincare &amp; supplements</p>
+            <h3 class="shop__name">Ruzi Wellness</h3>
+          </div>
+          <p class="shop__desc">Premium skincare, hair care, vitamins and sports nutrition for beauty from within, with expert advice on what suits you.</p>
+          <div class="shop__meta">
+            <p class="status" hidden><span class="status__label"></span><span class="status__note"></span></p>
+            <ul class="info-list">
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg><span><span class="sr-only">Opening hours: </span>Daily · 10 am to 9 pm</span></li>
+              <li><a href="https://www.instagram.com/ruzi_wellness_zaria/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-camera"></use></svg><span><span class="sr-only">Ruzi Wellness on Instagram: </span>@ruzi_wellness_zaria<span class="sr-only"> (opens in a new tab)</span></span></a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <div class="empty" id="empty" hidden></div>
   </section>
-  <section class="cat" id="coffee" data-cat="coffee" aria-labelledby="h-coffee">
-    <header class="cat__head">
-      <h2 id="h-coffee">Coffee &amp; wine</h2>
-      <p>Lake Kivu coffee to start the day, a good bottle to end it.</p>
+
+  <section class="wrap block" id="whats-on" aria-labelledby="h-events">
+    <header class="section-head">
+      <h2 id="h-events">What's on</h2>
+      <p>Live music, markets, match nights and family days at Zaria Court, posted by the Zaria Court team.</p>
     </header>
-    <ul class="shops">
-      <li class="shop" data-name="Kivu Noir" data-open="08:00" data-close="21:00" data-days="0123456">
-        <figure class="shop__img shop__img--logo"><img src="assets/logos/kivunoir.webp" alt="Kivu Noir logo" width="400" height="400" decoding="async"></figure>
-        <div class="shop__head">
-          <p class="shop__kind label">Coffee</p>
-          <h3 class="shop__name">Kivu Noir</h3>
-        </div>
-        <p class="shop__desc">Rwandan Red Bourbon Arabica, grown in the hills along Lake Kivu and roasted in Kigali. The newest Kivu Noir café, with warm, genuine hospitality in every cup.</p>
-        <div class="shop__meta">
-          <p class="status" hidden><b></b><span></span></p>
-          <p class="hours"><span>Daily · 8 am to 9 pm</span><a href="https://www.instagram.com/kivunoircafe/" target="_blank" rel="noopener" aria-label="Kivu Noir on Instagram">@kivunoircafe</a></p>
-        </div>
-      </li>
-      <li class="shop" data-name="Wines &amp; More" data-open="09:00" data-close="22:00" data-days="0123456">
-        <figure class="shop__img shop__img--type" aria-hidden="true"><span>Wines &amp; More</span></figure>
-        <div class="shop__head">
-          <p class="shop__kind label">Bottle shop</p>
-          <h3 class="shop__name">Wines &amp; More</h3>
-        </div>
-        <p class="shop__desc">A curated bottle shop with fine wines from around the world, craft spirits and local favorites. Perfect for gifts and celebrations.</p>
-        <div class="shop__meta">
-          <p class="status" hidden><b></b><span></span></p>
-          <p class="hours"><span>Daily · 9 am to 10 pm</span></p>
-        </div>
-      </li>
-    </ul>
+    <ol class="events" id="events-list" hidden></ol>
+    <button class="btn btn--quiet events-more" type="button" id="events-more" aria-controls="events-list" aria-expanded="false" hidden>Show all events</button>
+    <div class="events-empty" id="events-empty">
+      <span class="icon-tile"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-calendar"></use></svg></span>
+      <div class="events-empty__text">
+        <p class="label">Nothing announced yet</p>
+        <p>New events appear here as soon as the Zaria Court team announces them. You can also follow <a href="https://www.instagram.com/zariacourtrw/" target="_blank" rel="noopener">@zariacourtrw<span class="sr-only"> (opens in a new tab)</span></a> on Instagram.</p>
+      </div>
+    </div>
   </section>
-  <section class="cat" id="shop" data-cat="shop" aria-labelledby="h-shop">
-    <header class="cat__head">
-      <h2 id="h-shop">Shop</h2>
-      <p>Jewelry, fashion, sportswear and design from Rwanda and across Africa.</p>
+
+  <section class="wrap block" id="play" aria-labelledby="h-play">
+    <header class="section-head">
+      <h2 id="h-play">Play &amp; book</h2>
+      <p>Floodlit turf pitches and a professional-standard court, open to everyone. Pick a date and an hourly slot on Ticqet, from 7 am with the last slot at 11 pm.</p>
     </header>
-    <ul class="shops">
-      <li class="shop" data-name="AfroQuality" data-open="10:00" data-close="20:00" data-days="0123456">
-        <figure class="shop__img shop__img--logo"><img src="assets/logos/afroquality.webp" alt="AfroQuality logo" width="400" height="400" decoding="async"></figure>
-        <div class="shop__head">
-          <p class="shop__kind label">African fashion &amp; design</p>
-          <h3 class="shop__name">AfroQuality</h3>
+    <div class="play-grid">
+      <article class="play-card">
+        <svg class="icon play-card__icon" aria-hidden="true" focusable="false"><use href="#i-pitch"></use></svg>
+        <p class="label">Football · 5 a side</p>
+        <h3>Two 5-a-side pitches</h3>
+        <p class="play-card__text">Turf pitches for daily games, leagues and youth training, open to everyone from casual players to future stars, and lit for night games.</p>
+        <ul class="tags" aria-label="Features"><li>5 players a side</li><li>Turf</li><li>Floodlit</li></ul>
+        <div class="play-card__actions">
+          <a class="btn btn--primary btn--block" href="https://ticqet.rw/#/event/MX9KuPLIoNeBGlskCFba/reserve" data-ticqet="pitchA" target="_blank" rel="noopener">Book pitch A<span class="sr-only"> on Ticqet (opens in a new tab)</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-up-right"></use></svg></a>
+          <a class="btn btn--primary btn--block" href="https://ticqet.rw/#/" data-ticqet="pitchB" target="_blank" rel="noopener">Book pitch B<span class="sr-only"> on Ticqet (opens in a new tab)</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-up-right"></use></svg></a>
         </div>
-        <p class="shop__desc">Fashion, footwear and children&#x27;s books from dozens of African brands across nine countries and counting, Rwandan designers included. Think of it as a curated passport to the continent.</p>
-        <div class="shop__meta">
-          <p class="status" hidden><b></b><span></span></p>
-          <p class="hours"><span>Daily · 10 am to 8 pm</span><a href="https://www.instagram.com/afroquality/" target="_blank" rel="noopener" aria-label="AfroQuality on Instagram">@afroquality</a></p>
+      </article>
+      <article class="play-card">
+        <svg class="icon play-card__icon" aria-hidden="true" focusable="false"><use href="#i-court"></use></svg>
+        <p class="label">Basketball · Fitness · Events</p>
+        <h3>Multi-purpose court</h3>
+        <p class="play-card__text">A court built to professional standards for basketball, fitness and events, open to the public for training, games and get-togethers.</p>
+        <ul class="tags" aria-label="Features"><li>Basketball</li><li>Fitness</li><li>Pro standard</li></ul>
+        <div class="play-card__actions">
+          <a class="btn btn--primary btn--block" href="https://ticqet.rw/#/" data-ticqet="court" target="_blank" rel="noopener">Book the court<span class="sr-only"> on Ticqet (opens in a new tab)</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-up-right"></use></svg></a>
         </div>
-      </li>
-      <li class="shop" data-name="Art Rwanda" data-open="10:00" data-close="19:00" data-days="0123456">
-        <figure class="shop__img shop__img--logo"><img src="assets/logos/artrwanda.webp" alt="Art Rwanda logo" width="400" height="400" decoding="async"></figure>
-        <div class="shop__head">
-          <p class="shop__kind label">Rwandan art &amp; design</p>
-          <h3 class="shop__name">Art Rwanda</h3>
-        </div>
-        <p class="shop__desc">The shop of Art Rwanda Ubuhanzi, the national program that discovers and supports young Rwandan creatives. Browse fashion, art and design made by the talent it backs.</p>
-        <div class="shop__meta">
-          <p class="status" hidden><b></b><span></span></p>
-          <p class="hours"><span>Daily · 10 am to 7 pm</span><a href="https://www.instagram.com/ubuhanzi/" target="_blank" rel="noopener" aria-label="Art Rwanda on Instagram">@ubuhanzi</a></p>
-        </div>
-      </li>
-      <li class="shop" data-name="FLEXX" data-open="09:00" data-close="22:00" data-days="0123456">
-        <figure class="shop__img shop__img--logo"><img src="assets/logos/flexx.webp" alt="FLEXX logo" width="400" height="400" decoding="async"></figure>
-        <div class="shop__head">
-          <p class="shop__kind label">Sportswear</p>
-          <h3 class="shop__name">FLEXX</h3>
-        </div>
-        <p class="shop__desc">African performance sportswear and team jerseys, built for early mornings, heavy sessions and game day. Born in Africa, built for the world.</p>
-        <div class="shop__meta">
-          <p class="status" hidden><b></b><span></span></p>
-          <p class="hours"><span>Daily · 9 am to 10 pm</span><a href="https://www.instagram.com/flexx_now/" target="_blank" rel="noopener" aria-label="FLEXX on Instagram">@flexx_now</a></p>
-        </div>
-      </li>
-      <li class="shop" data-name="Melah Luxe" data-open="09:00" data-close="20:00" data-days="0123456">
-        <figure class="shop__img shop__img--logo"><img src="assets/logos/melah.webp" alt="Melah Luxe logo" width="400" height="400" decoding="async"></figure>
-        <div class="shop__head">
-          <p class="shop__kind label">Jewelry</p>
-          <h3 class="shop__name">Melah Luxe</h3>
-        </div>
-        <p class="shop__desc">Stainless steel jewelry and watches in gold and silver tones, from a female-owned Kigali brand. A little gold, a little silver, a lot of Melah.</p>
-        <div class="shop__meta">
-          <p class="status" hidden><b></b><span></span></p>
-          <p class="hours"><span>Daily · 9 am to 8 pm</span><a href="https://www.instagram.com/melah.luxe/" target="_blank" rel="noopener" aria-label="Melah Luxe on Instagram">@melah.luxe</a></p>
-        </div>
-      </li>
-    </ul>
+      </article>
+      <article class="play-card">
+        <svg class="icon play-card__icon" aria-hidden="true" focusable="false"><use href="#i-swing"></use></svg>
+        <p class="label">For children</p>
+        <h3>Playground &amp; park</h3>
+        <p class="play-card__text">A children's playground in the landscaped park on the Zaria Court campus, a short walk from the shops. Ask the team at reception for today's opening times.</p>
+      </article>
+    </div>
+    <p class="note" id="play-note"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-info"></use></svg><span>Pitch B and the court: Ticqet opens on its home page, where you choose <b>Zaria Court</b> under Venues.</span></p>
   </section>
-  <section class="cat" id="care" data-cat="care" aria-labelledby="h-care">
-    <header class="cat__head">
-      <h2 id="h-care">Grooming &amp; wellness</h2>
-      <p>A fresh cut, a skincare top-up and a little time for yourself.</p>
+
+  <section class="wrap block" id="know" aria-labelledby="h-know">
+    <header class="section-head">
+      <h2 id="h-know">Good to know</h2>
     </header>
-    <ul class="shops">
-      <li class="shop" data-name="14 Barber" data-open="08:00" data-close="21:30" data-days="0123456">
-        <figure class="shop__img shop__img--logo"><img src="assets/logos/barber14.webp" alt="14 Barber logo" width="400" height="400" decoding="async"></figure>
-        <div class="shop__head">
-          <p class="shop__kind label">Barbershop</p>
-          <h3 class="shop__name">14 Barber</h3>
-        </div>
-        <p class="shop__desc">Precision cuts and fresh fades for every hair type, with a sharp Pan-African sense of style. Book online or drop in.</p>
-        <div class="shop__meta">
-          <p class="status" hidden><b></b><span></span></p>
-          <p class="hours"><span>Daily · 8 am to 9:30 pm</span><a href="https://www.instagram.com/14_barber_kigali/" target="_blank" rel="noopener" aria-label="14 Barber on Instagram">@14_barber_kigali</a></p>
-        </div>
-      </li>
-      <li class="shop" data-name="Ruzi Wellness" data-open="10:00" data-close="21:00" data-days="0123456">
-        <figure class="shop__img shop__img--logo"><img src="assets/logos/ruzi.webp" alt="Ruzi Wellness logo" width="400" height="400" decoding="async"></figure>
-        <div class="shop__head">
-          <p class="shop__kind label">Skincare &amp; supplements</p>
-          <h3 class="shop__name">Ruzi Wellness</h3>
-        </div>
-        <p class="shop__desc">Premium skincare, hair care, vitamins and sports nutrition for beauty from within, with expert advice on what suits you.</p>
-        <div class="shop__meta">
-          <p class="status" hidden><b></b><span></span></p>
-          <p class="hours"><span>Daily · 10 am to 9 pm</span><a href="https://www.instagram.com/ruzi_wellness_zaria/" target="_blank" rel="noopener" aria-label="Ruzi Wellness on Instagram">@ruzi_wellness_zaria</a></p>
-        </div>
-      </li>
-    </ul>
+    <div class="know-grid">
+      <article class="know-card">
+        <span class="icon-tile"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-pin"></use></svg></span>
+        <h3>Finding your way</h3>
+        <p>Every shop is in the Zaria Court retail park on KG 17 Ave, Remera, a short walk from the hotel. The team at reception can point you in the right direction.</p>
+        <a class="text-link" href="https://www.google.com/maps/search/?api=1&amp;query=Zaria%20Court%20Kigali" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-directions"></use></svg>Get directions<span class="sr-only"> (opens in a new tab)</span></a>
+      </article>
+      <article class="know-card">
+        <span class="icon-tile"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg></span>
+        <h3>Opening hours</h3>
+        <p>All twelve shops open every day except Wok Spot, which closes on Mondays. Hours can change on public holidays and event days, so check with the shop if you are cutting it close.</p>
+      </article>
+      <article class="know-card">
+        <span class="icon-tile"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-ticket"></use></svg></span>
+        <h3>Events and bookings</h3>
+        <p>Event details come from the Zaria Court team and can change, so check the event link before you set off. Pitches and the court are booked on Ticqet.</p>
+        <a class="text-link" href="https://ticqet.rw/#/" data-ticqet="home" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-up-right"></use></svg>Open Ticqet<span class="sr-only"> (opens in a new tab)</span></a>
+      </article>
+    </div>
   </section>
-  <div class="empty" id="empty" hidden></div>
+
 </main>
 
-<section class="wrap block" id="whats-on" aria-labelledby="h-events" data-page>
-  <header class="cat__head">
-    <h2 id="h-events">What's on</h2>
-    <p>Live music, markets, match nights and family days at Zaria Court, posted by the Zaria Court team.</p>
-  </header>
-  <ol class="events" id="events-list" hidden></ol>
-  <button class="chip events-more" type="button" id="events-more" aria-controls="events-list" hidden></button>
-  <div class="events-empty" id="events-empty">
-    <p class="label">Nothing announced yet</p>
-    <p>New events appear here as soon as the Zaria Court team announces them. You can also follow <a href="https://www.instagram.com/zariacourtrw/" target="_blank" rel="noopener">@zariacourtrw</a> on Instagram.</p>
-  </div>
-</section>
-
-<section class="wrap block" id="play" aria-labelledby="h-play" data-page>
-  <header class="cat__head">
-    <h2 id="h-play">Play &amp; book</h2>
-    <p>Floodlit turf pitches and a professional-standard court, open to everyone. Pick a date and an hourly slot on Ticqet, from 7 am with the last slot at 11 pm.</p>
-  </header>
-  <div class="play">
-    <article class="play__card">
-      <svg class="play__icon" viewBox="0 0 56 56" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="10" width="50" height="36" rx="1.5"/><path d="M28 10v36"/><circle cx="28" cy="28" r="6"/><path d="M3 21h6v14H3M53 21h-6v14h6"/></svg>
-      <p class="label">Football · 5 a side</p>
-      <h3>Two 5-a-side pitches</h3>
-      <p>Turf pitches for daily games, leagues and youth training, open to everyone from casual players to future stars, and lit for night games.</p>
-      <ul class="play__facts"><li>5 players a side</li><li>Turf</li><li>Floodlit</li></ul>
-      <div class="play__actions">
-        <a class="btn-book" href="https://ticqet.rw/#/event/MX9KuPLIoNeBGlskCFba/reserve" data-ticqet="pitchA" target="_blank" rel="noopener">Book pitch A <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
-        <a class="btn-book" href="https://ticqet.rw/#/" data-ticqet="pitchB" target="_blank" rel="noopener">Book pitch B <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
-      </div>
-    </article>
-    <article class="play__card">
-      <svg class="play__icon" viewBox="0 0 56 56" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="10" width="50" height="36" rx="1.5"/><path d="M28 10v36"/><circle cx="28" cy="28" r="5"/><path d="M3 21h9v14H3M53 21h-9v14h9"/><path d="M12 21a7 7 0 0 1 0 14M44 21a7 7 0 0 0 0 14"/></svg>
-      <p class="label">Basketball · Fitness · Events</p>
-      <h3>Multi-purpose court</h3>
-      <p>A court built to professional standards for basketball, fitness and events, open to the public for training, games and get-togethers.</p>
-      <ul class="play__facts"><li>Basketball</li><li>Fitness</li><li>Pro standard</li></ul>
-      <div class="play__actions">
-        <a class="btn-book" href="https://ticqet.rw/#/" data-ticqet="court" target="_blank" rel="noopener">Book the court <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
-      </div>
-    </article>
-    <article class="play__card">
-      <svg class="play__icon" viewBox="0 0 56 56" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 49 19 9h18l11 40"/><path d="M24 9v24M32 9v24M21 33h14"/></svg>
-      <p class="label">For children</p>
-      <h3>Playground &amp; park</h3>
-      <p>A children's playground in the landscaped park on the Zaria Court campus, a short walk from the shops. Ask the team at reception for today's opening times.</p>
-    </article>
-  </div>
-  <p class="play__note" id="play-note">Pitch B and the court: Ticqet opens on its home page, where you choose <b>Zaria Court</b> under Venues.</p>
-</section>
-
-<section class="wrap know" id="know" aria-labelledby="know-title" data-page>
-  <h2 id="know-title">Good to know</h2>
-  <div class="know__grid">
-    <div class="know__item">
-      <h3>Finding your way</h3>
-      <p>Every shop here is in the Zaria Court retail park on KG 17 Ave, Remera, a short walk from the hotel. The team at reception can point you in the right direction.</p>
-    </div>
-    <div class="know__item">
-      <h3>Opening hours</h3>
-      <p>All twelve shops open every day except Wok Spot, which closes on Mondays. Hours can change on public holidays and event days, so check with the shop if you are cutting it close.</p>
-    </div>
-    <div class="know__item">
-      <h3>Events and bookings</h3>
-      <p>Event details come from the Zaria Court team and can change, so check the event link before you set off. Courts and pitches are booked on <a href="https://ticqet.rw/#/" data-ticqet="home" target="_blank" rel="noopener">Ticqet</a>.</p>
-    </div>
-  </div>
-</section>
-
 <footer class="foot" data-page>
-  <div class="wrap foot__in">
+  <div class="wrap foot__inner">
     <img class="foot__logo" src="assets/brand/zaria-court-primary-color-on-navy.svg" alt="Zaria Court" width="352" height="133">
     <p class="foot__tag">Never have to cross the street.</p>
-    <div class="foot__meta">
-      <address>Zaria Court Kigali · KG 17 Ave, Remera, Kigali, Rwanda</address>
-      <p>Shop opening hours as of October 2026.</p>
-      <p class="foot__links">
-        <a href="https://www.zariacourt.com" target="_blank" rel="noopener">zariacourt.com</a>
-        <a href="https://www.instagram.com/zariacourtrw/" target="_blank" rel="noopener">Instagram @zariacourtrw</a>
-        <a href="https://ticqet.rw/#/" data-ticqet="home" target="_blank" rel="noopener">Book a pitch or court on Ticqet</a>
-        <a href="https://www.google.com/maps/search/?api=1&amp;query=Zaria%20Court%20Kigali" target="_blank" rel="noopener">Directions</a>
-      </p>
+    <div class="foot__contact">
+      <p class="label">Visit &amp; contact</p>
+      <ul class="contact-list">
+        <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-pin"></use></svg><address>Zaria Court Kigali, KG 17 Ave, Remera, Kigali, Rwanda</address></li>
+        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Zaria%20Court%20Kigali" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-directions"></use></svg><span>Get directions<span class="sr-only"> (opens in a new tab)</span></span></a></li>
+        <li><a href="https://www.zariacourt.com" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-globe"></use></svg><span>zariacourt.com<span class="sr-only"> (opens in a new tab)</span></span></a></li>
+        <li><a href="https://www.instagram.com/zariacourtrw/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-camera"></use></svg><span><span class="sr-only">Instagram: </span>@zariacourtrw<span class="sr-only"> (opens in a new tab)</span></span></a></li>
+        <li><a href="https://ticqet.rw/#/" data-ticqet="home" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-ticket"></use></svg><span>Book a pitch or court on Ticqet<span class="sr-only"> (opens in a new tab)</span></span></a></li>
+      </ul>
+      <p class="foot__note"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg><span>Shop opening hours as of October 2026.</span></p>
     </div>
   </div>
 </footer>
@@ -327,37 +409,42 @@
   <div class="drawer__backdrop" data-close></div>
   <div class="drawer__panel" role="dialog" aria-modal="true" aria-labelledby="menu-title">
     <div class="drawer__top">
-      <img src="assets/brand/zaria-court-symbol-color-on-navy.svg" alt="" width="115" height="148">
+      <img class="drawer__mark" src="assets/brand/zaria-court-symbol-color-on-navy.svg" alt="" width="115" height="148">
       <p class="drawer__title label" id="menu-title">Explore Zaria Court</p>
-      <button class="drawer__close" type="button" data-close aria-label="Close menu"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3 3 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+      <button class="drawer__close" type="button" data-close aria-label="Close menu"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-close"></use></svg></button>
     </div>
-    <p class="drawer__live"><i aria-hidden="true"></i><span id="menu-live">Open daily</span></p>
+    <p class="drawer__live" id="menu-live-row"><span class="dot" aria-hidden="true"></span><span id="menu-live">Open daily</span></p>
     <nav class="drawer__group" aria-label="Shops">
-      <p class="label">Shops</p>
+      <p class="drawer__heading label">Shops</p>
       <ul class="drawer__list">
-        <li style="--i:0"><button class="drawer__item" type="button" data-filter="all" aria-pressed="true"><i class="sw sw--all" aria-hidden="true"></i><span>All shops</span><em>12</em></button></li>
-        <li style="--i:1"><button class="drawer__item" type="button" data-filter="eat" aria-pressed="false"><i class="sw sw--red" aria-hidden="true"></i><span>Eat</span><em>4</em></button></li>
-        <li style="--i:2"><button class="drawer__item" type="button" data-filter="coffee" aria-pressed="false"><i class="sw sw--yellow" aria-hidden="true"></i><span>Coffee &amp; wine</span><em>2</em></button></li>
-        <li style="--i:3"><button class="drawer__item" type="button" data-filter="shop" aria-pressed="false"><i class="sw sw--green" aria-hidden="true"></i><span>Shop</span><em>4</em></button></li>
-        <li style="--i:4"><button class="drawer__item" type="button" data-filter="care" aria-pressed="false"><i class="sw sw--white" aria-hidden="true"></i><span>Grooming &amp; wellness</span><em>2</em></button></li>
+        <li><button class="drawer__item" type="button" data-filter="all" aria-pressed="true"><span class="swatch swatch--all" aria-hidden="true"></span><span class="drawer__text">All shops</span><span class="drawer__count">12<span class="sr-only"> shops</span></span></button></li>
+        <li><button class="drawer__item" type="button" data-filter="eat" aria-pressed="false"><span class="swatch swatch--red" aria-hidden="true"></span><span class="drawer__text">Eat</span><span class="drawer__count">4<span class="sr-only"> shops</span></span></button></li>
+        <li><button class="drawer__item" type="button" data-filter="coffee" aria-pressed="false"><span class="swatch swatch--yellow" aria-hidden="true"></span><span class="drawer__text">Coffee &amp; wine</span><span class="drawer__count">2<span class="sr-only"> shops</span></span></button></li>
+        <li><button class="drawer__item" type="button" data-filter="shop" aria-pressed="false"><span class="swatch swatch--green" aria-hidden="true"></span><span class="drawer__text">Shop</span><span class="drawer__count">4<span class="sr-only"> shops</span></span></button></li>
+        <li><button class="drawer__item" type="button" data-filter="care" aria-pressed="false"><span class="swatch swatch--white" aria-hidden="true"></span><span class="drawer__text">Grooming &amp; wellness</span><span class="drawer__count">2<span class="sr-only"> shops</span></span></button></li>
       </ul>
-      <label class="switch"><input type="checkbox" id="open-only" role="switch"><span class="switch__track" aria-hidden="true"></span><span>Only shops open now</span></label>
+      <label class="switch"><input class="switch__input" type="checkbox" id="open-only" role="switch"><span class="switch__track" aria-hidden="true"></span><span>Only shops open now</span></label>
     </nav>
-    <nav class="drawer__group" aria-label="More at Zaria Court">
-      <p class="label">Explore</p>
+    <nav class="drawer__group drawer__group--explore" aria-label="More at Zaria Court">
+      <p class="drawer__heading label">Explore</p>
       <ul class="drawer__list">
-        <li style="--i:6"><a class="drawer__item" href="#whats-on" data-nav><span>What's on</span><em id="menu-events">Soon</em></a></li>
-        <li style="--i:7"><a class="drawer__item" href="#play" data-nav><span>Play &amp; book</span><em>3 areas</em></a></li>
-        <li style="--i:8"><a class="drawer__item" href="#know" data-nav><span>Good to know</span><em></em></a></li>
+        <li><a class="drawer__item" href="#whats-on" data-nav><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-calendar"></use></svg><span class="drawer__text">What's on</span><span class="drawer__count" id="menu-events">Soon</span></a></li>
+        <li><a class="drawer__item" href="#play" data-nav><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-ticket"></use></svg><span class="drawer__text">Play &amp; book</span><span class="drawer__count">3 areas</span></a></li>
+        <li><a class="drawer__item" href="#know" data-nav><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-info"></use></svg><span class="drawer__text">Good to know</span></a></li>
       </ul>
     </nav>
-    <a class="btn-book drawer__cta" href="https://ticqet.rw/#/" data-ticqet="home" target="_blank" rel="noopener">Book a pitch or court on Ticqet <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
-    <p class="drawer__foot">KG 17 Ave, Remera · <a href="https://www.instagram.com/zariacourtrw/" target="_blank" rel="noopener">@zariacourtrw</a></p>
+    <a class="btn btn--primary btn--block drawer__cta" href="https://ticqet.rw/#/" data-ticqet="home" target="_blank" rel="noopener">Book a pitch or court on Ticqet<span class="sr-only"> (opens in a new tab)</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-up-right"></use></svg></a>
+    <ul class="contact-list">
+      <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-pin"></use></svg><span>KG 17 Ave, Remera, Kigali</span></li>
+      <li><a href="https://www.instagram.com/zariacourtrw/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-camera"></use></svg><span><span class="sr-only">Instagram: </span>@zariacourtrw<span class="sr-only"> (opens in a new tab)</span></span></a></li>
+    </ul>
   </div>
 </div>
 
 <script src="js/config.js"></script>
 <script src="data/events.js"></script>
+<script src="js/lib/hours.js"></script>
+<script src="js/lib/events.js"></script>
 <script src="js/directory.js"></script>
 </body>
 </html>

@@ -1,0 +1,22 @@
+# Netlify settings for the Zaria Court Directory: a static site with no build step.
+
+[build]
+  publish = "."
+
+# Security headers for every page and file.
+# The Content-Security-Policy only allows the site's own scripts, styles and fonts, images from
+# the site or any https address (event posters), and the published Google Sheet for events.
+# If you add a new outside service (analytics, a chat widget), add its address here as well.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://docs.google.com https://*.googleusercontent.com; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'self'; upgrade-insecure-requests"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+
+# Font files never change, so browsers may keep them for a year.
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
